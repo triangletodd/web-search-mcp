@@ -59,6 +59,34 @@ Older models (even those with tool use specified) may not work or may work errat
 - Node.js 18.0.0 or higher
 - npm 8.0.0 or higher
 
+
+### Docker (WSL2)
+
+If you are running on WSL2, you can run this MCP server in Docker instead of installing Node.js and Playwright locally.
+
+1. Build the image:
+   ```bash
+   docker compose build
+   ```
+2. Run the server:
+   ```bash
+   docker compose run --rm web-search-mcp
+   ```
+3. Point your MCP client at Docker:
+
+```json
+{
+  "mcpServers": {
+    "web-search": {
+      "command": "docker",
+      "args": ["run", "-i", "--rm", "web-search-mcp:local"]
+    }
+  }
+}
+```
+
+If you need custom configuration, add environment variables in `docker-compose.yml` (or use a `.env` file with Compose).
+
 1. Download the latest release zip file from the [Releases page](https://github.com/mrkrsl/web-search-mcp/releases)
 2. Extract the zip file to a location on your system (e.g., `~/mcp-servers/web-search-mcp/`)
 3. **Open a terminal in the extracted folder and run:**

@@ -1,0 +1,12 @@
+services:
+  web-search-mcp:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: web-search-mcp:local
+    environment:
+      BROWSER_HEADLESS: "true"
+      MAX_BROWSERS: "3"
+      DEFAULT_TIMEOUT: "6000"
+    stdin_open: true
+    tty: true
