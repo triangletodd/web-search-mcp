@@ -7,7 +7,7 @@ COPY tsconfig.json ./
 COPY src ./src
 RUN npm run build
 
-FROM mcr.microsoft.com/playwright:v1.48.0-noble
+FROM mcr.microsoft.com/playwright:v1.64.0-noble
 
 ENV NODE_ENV=production
 ENV PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1
